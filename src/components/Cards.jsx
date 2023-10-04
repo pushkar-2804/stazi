@@ -24,7 +24,6 @@ const Cars = () => {
     setItemsPerPage(60);
     setdisable(true);
   };
-  console.log(disable);
   return (
     <Fragment>
       <div className="container">

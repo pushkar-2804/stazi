@@ -31,12 +31,12 @@ export default function Navbar() {
               <ul className="dropdown-menu">
                 <li>
                   <a className="dropdown-item" href="#">
-                    Action
+                    City
                   </a>
                 </li>
                 <li>
                   <a className="dropdown-item" href="#">
-                    Another action
+                    Ratings
                   </a>
                 </li>
               </ul>

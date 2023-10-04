@@ -2,8 +2,11 @@
 import Carousel from "react-bootstrap/Carousel";
 import { FaBed, FaRestroom, FaBath, FaRegBuilding } from "react-icons/fa";
 import { GoLocation } from "react-icons/go";
-import { BsHeart } from "react-icons/bs";
+import { BsHeart, BsFillHeartFill } from "react-icons/bs";
+import { useState } from "react";
+
 export default function CarCard({ property }) {
+  const [like, setLike] = useState(false);
   return (
     <div className="col-lg-4 col-md-6 col-sm-6 col-12 p-4 ">
       <div
@@ -32,7 +35,7 @@ export default function CarCard({ property }) {
         <div
           className="d-flex justify-content-between p-2"
           style={{
-            position: "absolute", // Position absolute to overlay on image
+            position: "absolute",
             top: "0",
             left: "0",
             right: "0",
@@ -42,15 +45,19 @@ export default function CarCard({ property }) {
             <button type="button" className="btn btn-light rounded-pill">
               {property.category}
             </button>
-            <button type="button" className="btn btn-light rounded-pill">
-              <BsHeart className=".bg-info" />
+            <button
+              type="button"
+              className="btn btn-light rounded-pill"
+              onClick={() => setLike(!like)}
+            >
+              {like ? <BsFillHeartFill /> : <BsHeart className=".bg-info" />}
             </button>
           </div>
         </div>
 
         <div className="card-body">
           <div className="d-flex justify-content-between">
-            <div className="p-2">
+            <div className="p-0">
               {" "}
               <p>
                 <span>
@@ -59,7 +66,7 @@ export default function CarCard({ property }) {
                 {property.location}
               </p>
             </div>
-            <div className="p-2">
+            <div className="p-0">
               {property.popular === "True" ? (
                 <button
                   type="button"
@@ -77,27 +84,27 @@ export default function CarCard({ property }) {
             </div>
           </div>
 
-          <p className="mt-2   fs-4">{property.complete_address}</p>
+          <p className="mt-2   fs-5">{property.complete_address}</p>
           <div className="d-flex flex-row  justify-content-between m-4">
-            <div className="p-2">
+            <div className="p-0">
               <p>
                 <FaRegBuilding className="text-secondary fs-2" />{" "}
               </p>
               <p> {property.number_of_rooms}rooms</p>
             </div>
-            <div className="p-2">
+            <div className="p-0">
               <p>
                 <FaBed className="text-secondary fs-2" />{" "}
               </p>
               <p> {property.number_of_bedrooms}bed</p>
             </div>
-            <div className="p-2">
+            <div className="p-0">
               <p>
                 <FaBath className="text-secondary fs-2" />{" "}
               </p>
               <p> {property.number_of_baths} bath</p>
             </div>
-            <div className="p-2">
+            <div className="p-0">
               <p>
                 <FaRestroom className="text-secondary fs-2" />{" "}
               </p>
@@ -105,8 +112,8 @@ export default function CarCard({ property }) {
             </div>
           </div>
 
-          <hr className="my-4" />
-          <div className=" d-flex justify-content-between">
+          <hr className="my-2" />
+          <div className=" d-flex justify-content-between items-center">
             <p className="mt-2  fw-bold fs-4">
               {property.price}
               <span style={{ fontWeight: 100 }}>/month</span>
