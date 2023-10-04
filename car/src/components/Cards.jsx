@@ -5,10 +5,8 @@ import { useParams } from "react-router-dom";
 const Cars = () => {
   const card_data = useSelector((state) => state.data);
   var { pageNumber } = useParams();
-  // console.log(card_data);
 
   if (!pageNumber) pageNumber = 1;
-  // console.log(pageNumber);
   const itemsPerPage = 6;
   const startId = (pageNumber - 1) * itemsPerPage + 1;
   const endId = startId + itemsPerPage - 1;
